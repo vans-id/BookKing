@@ -68,6 +68,7 @@ const Button = (props) => {
     }
   }
 
+  // Last check, return a button
   return (
     <button
       className={classes.join(' ')}
@@ -85,7 +86,6 @@ Button.propTypes = {
   href: PropTypes.string,
   target: PropTypes.string,
   className: PropTypes.string,
-  isExternal: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isLoading: PropTypes.bool,
   isSmall: PropTypes.bool,
