@@ -3,24 +3,24 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Button = (props) => {
-  const className = [props.className];
+  const classes = [props.className];
 
-  if (props.isPrimary) className.push('btn-primary');
-  if (props.isSmall) className.push('btn-sm');
-  if (props.isLarge) className.push('btn-lg');
-  if (props.isBlock) className.push('btn-block');
-  if (props.hasShadow) className.push('btn-shadow');
+  if (props.isPrimary) classes.push('btn-primary');
+  if (props.isSmall) classes.push('btn-sm');
+  if (props.isLarge) classes.push('btn-lg');
+  if (props.isBlock) classes.push('btn-block');
+  if (props.hasShadow) classes.push('btn-shadow');
 
   const onClick = () => {
     if (props.onClick) props.onClick();
   };
 
   if (props.isDisabled || props.isLoading) {
-    if (props.isDisabled) className.push('disabled');
+    if (props.isDisabled) classes.push('disabled');
 
     return (
       <span
-        className={className.join(' ')}
+        className={classes.join(' ')}
         style={props.style}
       >
         {props.isLoading ? (
@@ -40,7 +40,7 @@ const Button = (props) => {
       return (
         <a
           href={props.href}
-          className={className.join(' ')}
+          className={classes.join(' ')}
           style={props.style}
           target={
             props.target === '_blank' ? '_blank' : null
@@ -58,7 +58,7 @@ const Button = (props) => {
       return (
         <Link
           to={props.href}
-          className={className.join(' ')}
+          className={classes.join(' ')}
           style={props.style}
           onClick={onClick}
         >
@@ -70,7 +70,7 @@ const Button = (props) => {
 
   return (
     <button
-      className={className.join(' ')}
+      className={classes.join(' ')}
       style={props.style}
       onClick={onClick}
     >
@@ -85,6 +85,7 @@ Button.propTypes = {
   href: PropTypes.string,
   target: PropTypes.string,
   className: PropTypes.string,
+  isExternal: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isLoading: PropTypes.bool,
   isSmall: PropTypes.bool,
