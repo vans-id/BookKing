@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import IconText from './IconText';
-import Button from '../UI/Button/Button';
+
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  Nav,
+} from 'reactstrap';
+import './Header.scss';
+import IconText from '../IconText/IconText';
+import Button from '../../UI/Button/Button';
 
 const Header = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
+
   const getNavLinkClass = (path) => {
     return props.location.pathname === path
       ? 'active'
@@ -12,15 +24,13 @@ const Header = (props) => {
 
   return (
     <header>
-      <nav className='navbar navbar-expand-md'>
+      <Navbar color='white' light expand='sm'>
         <div className='container'>
           <IconText />
+          <NavbarToggler onClick={toggle} />
 
-          <div
-            className='collapse navbar-collapse'
-            id='navbarSupportedContent'
-          >
-            <ul className='navbar-nav ml-auto'>
+          <Collapse navbar isOpen={isOpen}>
+            <Nav className='ml-auto' navbar>
               <li
                 className={`nav-item ${getNavLinkClass(
                   '/'
@@ -73,10 +83,10 @@ const Header = (props) => {
                   Agents
                 </Button>
               </li>
-            </ul>
-          </div>
+            </Nav>
+          </Collapse>
         </div>
-      </nav>
+      </Navbar>
     </header>
   );
 };

@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 
 import './assets/scss/style.scss';
-import LandingPage from './pages/LandingPage';
+import LandingPage from './container/LandingPage';
 
 function App() {
   return (
