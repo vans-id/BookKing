@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Hero.scss';
-import formatNumber from '../utils/formatNumber';
+import formatNumber from '../../utils/formatNumber';
 
 import HeroImage from '../../assets/images/hero.jpg';
 import HeroFrame from '../../assets/images/hero-frame.jpg';
@@ -85,17 +85,17 @@ const Hero = (props) => {
           </div>
         </div>
 
-        <div className='col-md-6'>
+        <div className='col-md-6 pl-5'>
           <div className='hero-image'>
             <img
               src={HeroImage}
               alt='Room with couches'
-              className='img-fluid position-absolute hero-img'
+              className='hero-img'
             />
             <img
               src={HeroFrame}
               alt='Frame Image'
-              className='img-fluid position-absolute hero-frame'
+              className='hero-frame'
             />
           </div>
         </div>

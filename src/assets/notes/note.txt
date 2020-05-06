@@ -1,0 +1,24 @@
+// for Most Picked js
+<div className='row'>
+        <div className='col-md-4'>
+          <div className='card'>test</div>
+        </div>
+        <div className='col-md-8'>
+          <div className='row'>
+            <div className='col-6'>
+              <div className='card'>test</div>
+            </div>
+            <div className='col-6'>
+              <div className='card'>test</div>
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col-6'>
+              <div className='card'>test</div>
+            </div>
+            <div className='col-6'>
+              <div className='card'>test</div>
+            </div>
+          </div>
+        </div>
+      </div>

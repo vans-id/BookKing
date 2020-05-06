@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import './Header.scss';
 import IconText from '../IconText/IconText';
-import Button from '../../UI/Button/Button';
+import Button from '../UI/Button/Button';
 
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
