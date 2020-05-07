@@ -35,15 +35,15 @@ $breakpoint-tablet: 768px;
 @media (max-width: $breakpoint-tablet) {
   .section-hero {
     .hero-image {
-      margin-top: 20px;
-      margin-bottom: 20px;
       max-height: 250px;
 
       .hero-img {
+        margin-left: 20px;
         width: 80%;
       }
 
       .hero-frame {
+        margin-left: 40px;
         width: 80%;
       }
     }

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './MostPicked.scss';
 import Button from '../UI/Button/Button';
@@ -14,8 +13,10 @@ const MostPicked = (props) => {
       <div className='container-grid'>
         {props.data.map((item, i) => (
           <div
-            className={`item column-4 ${
-              i === 0 ? 'row-2' : 'row-1'
+            className={`item ${
+              i === 0
+                ? 'column-12 row-2'
+                : 'column-4 row-1'
             }`}
             key={i}
           >

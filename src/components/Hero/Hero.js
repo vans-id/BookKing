@@ -85,7 +85,7 @@ const Hero = (props) => {
           </div>
         </div>
 
-        <div className='col-md-6 pl-5'>
+        <div className='col-md-6'>
           <div className='hero-image'>
             <img
               src={HeroImage}
