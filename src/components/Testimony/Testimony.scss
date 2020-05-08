@@ -1,0 +1,22 @@
+.testimonial-hero {
+  margin: 30px 0 0 30px;
+}
+
+.testimonial-frame {
+  margin: -30px 0 0 -30px;
+}
+
+.testimonial-content {
+  margin-left: 50px;
+}
+
+.testimonial-hero,
+.testimonial-hero img {
+  height: 400px;
+}
+
+@media (max-width: 768px) {
+  .testimonial-content {
+    margin: 32px 8px 0 8px;
+  }
+}
