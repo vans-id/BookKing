@@ -1,0 +1,39 @@
+@import '../../assets/scss/style.scss';
+
+footer {
+  border-top: 1px solid $gray-200;
+  padding-top: 50px;
+
+  .brand-footer {
+    width: 350px;
+
+    .brand-tagline {
+      color: $gray-500;
+      margin-top: 8px;
+      font-weight: lighter;
+    }
+  }
+
+  .list-group-item {
+    padding: 5px 0;
+    border-bottom: none;
+
+    a,
+    span {
+      color: $gray-500;
+      font-weight: lighter;
+    }
+
+    a {
+      @include hover-focus {
+        color: $gray-900;
+      }
+    }
+  }
+
+  .copyrights {
+    margin: 50px auto;
+    font-weight: 300;
+    color: $gray-500;
+  }
+}

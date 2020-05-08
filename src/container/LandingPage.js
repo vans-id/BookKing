@@ -6,6 +6,7 @@ import Hero from '../components/Hero/Hero';
 import MostPicked from '../components/MostPicked/MostPicked';
 import Categories from '../components/Categories/Categories';
 import Testimony from '../components/Testimony/Testimony';
+import Footer from '../components/Footer/Footer';
 
 const LandingPage = (props) => {
   const refMostPicked = useRef();
@@ -23,6 +24,7 @@ const LandingPage = (props) => {
       />
       <Categories data={Data.categories} />
       <Testimony data={Data.testimonial} />
+      <Footer />
     </div>
   );
 };

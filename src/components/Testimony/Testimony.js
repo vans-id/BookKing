@@ -9,7 +9,7 @@ const Testimony = ({ data }) => {
   return (
     <section className='container'>
       <div className='row align-items-center'>
-        <div className='col-md-4'>
+        <div className='col-lg-4'>
           <div className='testimonial-hero'>
             <img
               src={data.imageUrl}
@@ -24,7 +24,7 @@ const Testimony = ({ data }) => {
             />
           </div>
         </div>
-        <div className='col-md-7 testimonial-content'>
+        <div className='col-lg-7 testimonial-content'>
           <h4 className='mb-4'>{data.name}</h4>
           <Stars
             value={data.rate}
