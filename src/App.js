@@ -6,12 +6,21 @@ import {
 
 import './assets/scss/style.scss';
 import LandingPage from './container/LandingPage';
+import DetailPage from './container/DetailPage';
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Route path='/' component={LandingPage} />
+        <Route
+          path='/'
+          exact
+          component={LandingPage}
+        />
+        <Route
+          path='/details'
+          component={DetailPage}
+        />
       </BrowserRouter>
     </>
   );
