@@ -2,9 +2,9 @@ import React from 'react';
 import Rotate from 'react-reveal/Rotate';
 
 import './Testimony.scss';
-import TestimonialFrame from '../../assets/images/testimonial-frame.jpg';
-import Stars from '../UI/Stars/Stars';
-import Button from '../UI/Button/Button';
+import TestimonialFrame from '../../../assets/images/testimonial-frame.jpg';
+import Stars from '../../UI/Stars/Stars';
+import Button from '../../UI/Button/Button';
 
 const Testimony = ({ data }) => {
   return (

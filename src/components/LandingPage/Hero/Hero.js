@@ -2,15 +2,15 @@ import React from 'react';
 import Fade from 'react-reveal/Fade';
 
 import './Hero.scss';
-import formatNumber from '../../utils/formatNumber';
+import formatNumber from '../../../utils/formatNumber';
 
-import HeroImage from '../../assets/images/hero.jpg';
-import HeroFrame from '../../assets/images/hero-frame.jpg';
-import IconCities from '../../assets/images/icons/ic_cities.svg';
-import IconTraveler from '../../assets/images/icons/ic_traveler.svg';
-import IconTreasure from '../../assets/images/icons/ic_treasure.svg';
+import HeroImage from '../../../assets/images/hero.jpg';
+import HeroFrame from '../../../assets/images/hero-frame.jpg';
+import IconCities from '../../../assets/images/icons/ic_cities.svg';
+import IconTraveler from '../../../assets/images/icons/ic_traveler.svg';
+import IconTreasure from '../../../assets/images/icons/ic_treasure.svg';
 
-import Button from '../UI/Button/Button';
+import Button from '../../UI/Button/Button';
 
 const Hero = (props) => {
   const showMostPicked = () => {

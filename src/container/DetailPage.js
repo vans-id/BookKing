@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
-import InputNumber from '../components/UI/Forms/InputNumber/InputNumber';
+// import InputNumber from '../components/UI/Forms/InputNumber/InputNumber';
+import InputDate from '../components/UI/Forms/InputDate/InputDate';
 
 const DetailPage = () => {
-  const [value, setValue] = useState(1);
+  // const [value, setValue] = useState(1);
+
+  // const handleChange = (e) => {
+  //   setValue(e.target.value);
+  // };
+
+  const [value, setValue] = useState({
+    startDate: new Date(),
+    endDate: new Date(),
+    key: 'selection',
+  });
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -13,11 +24,9 @@ const DetailPage = () => {
       style={{ width: '300px' }}
       className='container'
     >
-      <InputNumber
+      <InputDate
         max={30}
-        suffix=' night'
         onChange={handleChange}
-        isSuffixPlural
         name='value'
         value={value}
       />

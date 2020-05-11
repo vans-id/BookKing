@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Fade from 'react-reveal/Fade';
 
 import {
   Collapse,
@@ -9,8 +10,7 @@ import {
 
 import './Header.scss';
 import IconText from '../IconText/IconText';
-import Button from '../UI/Button/Button';
-import Fade from 'react-reveal/Fade';
+import Button from '../../UI/Button/Button';
 
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);

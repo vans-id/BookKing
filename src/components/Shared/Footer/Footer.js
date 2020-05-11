@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Footer.scss';
-import Button from '../UI/Button/Button';
+import Button from '../../UI/Button/Button';
 import IconText from '../IconText/IconText';
 
 const Footer = () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import Fade from 'react-reveal/Fade';
 
 import './MostPicked.scss';
-import Button from '../UI/Button/Button';
+import Button from '../../UI/Button/Button';
 
 const MostPicked = (props) => {
   return (

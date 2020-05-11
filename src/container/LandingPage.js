@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 
 import Data from '../json/landingPage.json';
-import Header from '../components/Header/Header';
-import Hero from '../components/Hero/Hero';
-import MostPicked from '../components/MostPicked/MostPicked';
-import Categories from '../components/Categories/Categories';
-import Testimony from '../components/Testimony/Testimony';
-import Footer from '../components/Footer/Footer';
+import Header from '../components/Shared/Header/Header';
+import Hero from '../components/LandingPage/Hero/Hero';
+import MostPicked from '../components/LandingPage/MostPicked/MostPicked';
+import Categories from '../components/LandingPage/Categories/Categories';
+import Testimony from '../components/Shared/Testimony/Testimony';
+import Footer from '../components/Shared/Footer/Footer';
 
 const LandingPage = (props) => {
   const refMostPicked = useRef();
