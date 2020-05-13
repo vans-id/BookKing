@@ -23,6 +23,26 @@ const Header = (props) => {
       : '';
   };
 
+  if (props.isCentered) {
+    return (
+      <Fade top>
+        <header className='spacing-sm'>
+          <div className='container'>
+            <Navbar color='white' light expand='lg'>
+              <Button
+                className='brand-text-icon mx-auto'
+                href='/'
+                type='link'
+              >
+                <IconText />
+              </Button>
+            </Navbar>
+          </div>
+        </header>
+      </Fade>
+    );
+  }
+
   return (
     <Fade top>
       <header>

@@ -7,6 +7,7 @@ import {
 import './assets/scss/style.scss';
 import LandingPage from './container/LandingPage';
 import DetailPage from './container/DetailPage';
+import Checkout from './container/Checkout';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           path='/properties/:id'
           component={DetailPage}
         />
+        <Route path='/checkout' component={Checkout} />
       </BrowserRouter>
     </>
   );
