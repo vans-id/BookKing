@@ -6,9 +6,6 @@ import formatNumber from '../../../utils/formatNumber';
 
 import HeroImage from '../../../assets/images/hero.jpg';
 import HeroFrame from '../../../assets/images/hero-frame.jpg';
-import IconCities from '../../../assets/images/icons/ic_cities.svg';
-import IconTraveler from '../../../assets/images/icons/ic_traveler.svg';
-import IconTreasure from '../../../assets/images/icons/ic_treasure.svg';
 
 import Button from '../../UI/Button/Button';
 
@@ -48,7 +45,7 @@ const Hero = (props) => {
               <div className='col-6 col-lg-4'>
                 <img
                   className='icon-image'
-                  src={IconTraveler}
+                  src={'/images/ic_traveler.svg'}
                   alt={`${props.data.travelers} traveler`}
                 />
                 <h6 className='mt-3'>
@@ -60,7 +57,7 @@ const Hero = (props) => {
               </div>
               <div className='col-6 col-lg-4'>
                 <img
-                  src={IconTreasure}
+                  src={'/images/ic_treasure.svg'}
                   alt='treasure'
                   className='icon-image'
                 />
@@ -73,7 +70,7 @@ const Hero = (props) => {
               </div>
               <div className='col-6 col-lg-4'>
                 <img
-                  src={IconCities}
+                  src={'/images/ic_cities.svg'}
                   alt='cities'
                   className='icon-image'
                 />

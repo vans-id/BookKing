@@ -1,46 +1,51 @@
-import React, { useState } from 'react';
-// import InputNumber from '../components/UI/Forms/InputNumber/InputNumber';
-import InputDate from '../components/UI/Forms/InputDate/InputDate';
-import Breadcrumb from '../components/UI/Breadcrumb/Breadcrumb';
+import React, { useEffect } from 'react';
 
-const DetailPage = () => {
-  // const [value, setValue] = useState(1);
+import ItemDetails from '../json/itemDetails.json';
+import Header from '../components/Shared/Header/Header';
+import Title from '../components/DetailPage/Title/Title';
+import FeaturedImage from '../components/DetailPage/FeaturedImage/FeaturedImage';
+import Description from '../components/DetailPage/Description/Description';
+import BookingForm from '../components/DetailPage/BookingForm/BookingForm';
+import Categories from '../components/Shared/Categories/Categories';
+import Testimony from '../components/Shared/Testimony/Testimony';
+import Footer from '../components/Shared/Footer/Footer';
 
-  // const handleChange = (e) => {
-  //   setValue(e.target.value);
-  // };
+const DetailPage = (props) => {
+  useEffect(() => {
+    document.title = 'Details Page';
+    window.scrollTo(0, 0);
+  }, []);
 
-  // const [value, setValue] = useState({
-  //   startDate: new Date(),
-  //   endDate: new Date(),
-  //   key: 'selection',
-  // });
-
-  // const handleChange = (e) => {
-  //   setValue(e.target.value);
-  // };
-
-  const breadcrumb = [
+  const breadcrumbLabel = [
     { pageTitle: 'Home', pageHref: '' },
     { pageTitle: 'House Details', pageHref: '' },
   ];
 
   return (
-    <div
-      style={{ width: '300px' }}
-      className='container'
-    >
-      {/* <InputDate
-        max={30}
-        onChange={handleChange}
-        name='value'
-        value={value}
-      /> */}
-      <Breadcrumb
-        data={breadcrumb}
-        className='breadcrumb'
+    <>
+      <Header {...props} />
+      <Title
+        breadcrumb={breadcrumbLabel}
+        data={ItemDetails}
       />
-    </div>
+      <FeaturedImage data={ItemDetails.imageUrls} />
+      <section className='container'>
+        <div className='row'>
+          <div className='col-md-7'>
+            <Description data={ItemDetails} />
+          </div>
+          <div className='col-md-5'>
+            <BookingForm
+              data={ItemDetails}
+              startBooking={() => {}}
+            />
+          </div>
+        </div>
+      </section>
+      <Categories data={ItemDetails.categories} />
+      <Testimony data={ItemDetails.testimonial} />
+      <Footer />
+    </>
   );
 };
 

@@ -74,6 +74,12 @@
       &.column-4 {
         grid-column-end: span 6;
       }
+      &.column-5 {
+        grid-column-end: span 6;
+      }
+      &.column-7 {
+        grid-column-end: span 12;
+      }
       &.column-12 {
         grid-column-end: span 12;
       }

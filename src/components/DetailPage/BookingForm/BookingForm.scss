@@ -1,0 +1,14 @@
+.section-booking {
+  padding: 60px 80px;
+
+  .pay-label {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .section-booking {
+    padding: 32px;
+    margin-top: 24px;
+  }
+}

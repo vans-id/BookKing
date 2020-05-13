@@ -4,6 +4,33 @@ import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 
 const Breadcrumb = (props) => {
+  const isLastItem = (index) => {
+    return index === props.data.length - 1;
+  };
+
+  const renderLink = (condition, snap) => {
+    if (condition) {
+      return snap.pageTitle;
+    } else {
+      return (
+        <Button type='link' href={snap.pageHref}>
+          {snap.pageTitle}
+        </Button>
+      );
+    }
+  };
+
+  let labels = props.data.map((item, i) => (
+    <li
+      key={`breadcrumb-${i}`}
+      className={`breadcrumb-item ${
+        isLastItem(i) ? 'active' : null
+      }`}
+    >
+      {renderLink(isLastItem(i), item)}
+    </li>
+  ));
+
   return (
     <nav aria-label='breadcrumb'>
       <ol
@@ -11,24 +38,7 @@ const Breadcrumb = (props) => {
           .split(' ')
           .join(' ')}
       >
-        {props.data.map((item, i) => (
-          <li
-            key={`breadcrumb-${i}`}
-            className={`breadcrumb-item ${
-              i === props.data.length - 1
-                ? 'active'
-                : null
-            }`}
-          >
-            {i === props.data.length - 1 ? (
-              item.pageTitle
-            ) : (
-              <Button type='link' href={item.pageHref}>
-                {item.pageTitle}
-              </Button>
-            )}
-          </li>
-        ))}
+        {labels}
       </ol>
     </nav>
   );

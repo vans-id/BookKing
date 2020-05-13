@@ -18,7 +18,7 @@ function App() {
           component={LandingPage}
         />
         <Route
-          path='/details'
+          path='/properties/:id'
           component={DetailPage}
         />
       </BrowserRouter>

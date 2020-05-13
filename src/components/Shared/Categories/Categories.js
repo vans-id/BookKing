@@ -5,8 +5,6 @@ import './Categories.scss';
 import Button from '../../UI/Button/Button';
 
 const Categories = ({ data }) => {
-  let listCategories;
-
   const checkPopular = (stat) => {
     if (stat) {
       return (
@@ -64,7 +62,7 @@ const Categories = ({ data }) => {
     }
   };
 
-  listCategories = data.map((category, i) => (
+  let listCategories = data.map((category, i) => (
     <Fade bottom key={`category-${i}`}>
       <section className='container section-categories'>
         <h4 className='mb-3 font-weight-medium'>
