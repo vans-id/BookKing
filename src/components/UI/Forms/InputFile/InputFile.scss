@@ -1,48 +1,44 @@
 @import '../../../../assets/scss/color-variables';
 
-.input-date {
+.input-text {
+  margin-bottom: 20px;
+
   .input-group {
     background-color: #fff;
 
     .input-group-text {
       pointer-events: none;
       border: 0;
-      cursor: pointer;
+      cursor: auto;
+      background-color: $gray-900;
       padding: 0;
       border-radius: 4px !important;
+      font-size: 24px;
       width: 45px;
       height: 45px;
       display: flex;
       justify-content: center;
-      background-color: #dfe5ff;
       position: absolute;
-      z-index: 5;
+      z-index: 999;
     }
 
     .form-control {
-      cursor: pointer;
       border: 0;
       border-radius: 0;
       outline: 0;
       box-shadow: none;
       background-color: $gray-100;
-      padding: 10px 45px;
+      padding: 10px 16px;
+      margin: 4px 1px;
       text-align: center;
-      justify-content: center;
-      width: 100%;
-      height: 45px;
     }
+  }
 
-    .date-range-wrapper {
-      cursor: pointer;
-      padding: 4px;
-      background-color: #fff;
-      box-shadow: 0 0 20px rgba($black, 0.1);
-      position: absolute;
-      border-radius: 4px;
-      top: -180px;
-      left: -25px;
-      z-index: 999;
-    }
+  .error-helper {
+    position: absolute;
+    top: 45px;
+    color: $red;
+    padding: 0 2px;
+    font-size: 12px;
   }
 }

@@ -6,7 +6,7 @@ const Description = ({ data }) => {
   let featuredIcons = data.features.map(
     (feature, i) => (
       <div
-        className='col-6 col-md-3 mb-3'
+        className='col-6 col-sm-4 col-lg-3 mb-3'
         key={`feature-${i}`}
       >
         <img

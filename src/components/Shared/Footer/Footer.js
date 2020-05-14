@@ -91,7 +91,7 @@ const Footer = () => {
 
         <div className='row'>
           <div className='col-auto text-center copyrights'>
-            Copyright 2020 • All right reserverd •
+            Copyright 2020 • All right reserved •
             Staycation
           </div>
         </div>
