@@ -29,9 +29,10 @@ const InputText = ({
     };
 
     if (type === 'email') {
-      if (!pattern.test(e.target.value))
-        setError(errorResponse);
-      else setError(null);
+      let res = pattern.test(e.target.value);
+      if (!res) {
+        setError(res);
+      } else setError(null);
     }
 
     if (type === 'tel') {

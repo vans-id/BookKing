@@ -13,7 +13,7 @@ const setup = () => {
     <Router>
       <Breadcrumb
         data={breadcrumbList}
-        className={''}
+        className={'breadcrumb'}
       />
     </Router>
   );
