@@ -29,13 +29,9 @@ const Header = (props) => {
         <header className='spacing-sm'>
           <div className='container'>
             <Navbar color='white' light expand='lg'>
-              <Button
-                className='brand-text-icon mx-auto'
-                href='/'
-                type='link'
-              >
+              <span className='brand-text-icon mx-auto'>
                 <IconText />
-              </Button>
+              </span>
             </Navbar>
           </div>
         </header>

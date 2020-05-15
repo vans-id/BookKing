@@ -1,6 +1,6 @@
 @import '../../../../assets/scss/color-variables';
 
-.input-text {
+.file-input {
   margin-bottom: 20px;
 
   .input-group {
@@ -30,15 +30,6 @@
       background-color: $gray-100;
       padding: 10px 16px;
       margin: 4px 1px;
-      text-align: center;
     }
-  }
-
-  .error-helper {
-    position: absolute;
-    top: 45px;
-    color: $red;
-    padding: 0 2px;
-    font-size: 12px;
   }
 }

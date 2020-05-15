@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import Fade from 'react-reveal/Fade';
 
 import Button from '../../UI/Button/Button';
 
 const MostPicked = (props) => {
+  const SectionRef = forwardRef((props, ref) => (
+    <section
+      className='container most-picked'
+      ref={ref}
+    >
+      {props.children}
+    </section>
+  ));
+
   const isFirstItem = (index) => {
     if (index === 0) {
       return 'column-12 row-2';
@@ -48,15 +57,12 @@ const MostPicked = (props) => {
 
   return (
     <Fade bottom>
-      <section
-        className='container'
-        ref={props.refMostPicked}
-      >
+      <SectionRef ref={props.refMostPicked}>
         <h4 className='mb-3'>Most Picked</h4>
         <div className='container-grid'>
           {pickedItems}
         </div>
-      </section>
+      </SectionRef>
     </Fade>
   );
 };

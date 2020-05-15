@@ -1,0 +1,21 @@
+@import '../../assets/scss/color-variables';
+
+.left-content {
+  border-right: 1px solid $gray-300;
+  padding-right: 80px;
+}
+
+.right-content {
+  padding-left: 80px;
+}
+
+@media (max-width: 800px) {
+  .left-content {
+    border: none;
+    padding-right: 15px;
+  }
+
+  .right-content {
+    padding-left: 15px;
+  }
+}

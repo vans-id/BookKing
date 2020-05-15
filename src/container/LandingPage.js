@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import Data from '../json/landingPage.json';
 import Header from '../components/Shared/Header/Header';
@@ -9,7 +9,7 @@ import Testimony from '../components/Shared/Testimony/Testimony';
 import Footer from '../components/Shared/Footer/Footer';
 
 const LandingPage = (props) => {
-  const refMostPicked = useRef();
+  const refMostPicked = useRef('');
 
   useEffect(() => {
     document.title = 'Stayseeker | Home';

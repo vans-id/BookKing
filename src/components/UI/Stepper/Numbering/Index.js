@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Fade from 'react-reveal/Fade';
 
-import './Index.scss';
+import './index.scss';
 
 const Numbering = ({
   style,
@@ -24,10 +24,7 @@ const Numbering = ({
     }
 
     return (
-      <li
-        key={`list-${i}`}
-        className={isActive.join(' ')}
-      >
+      <li key={`list-${i}`} className={isActive}>
         {i + 1}
       </li>
     );
@@ -36,7 +33,9 @@ const Numbering = ({
   return (
     <Fade>
       <ol
-        className={['stepper', className].join(' ')}
+        className={['stepper my-5', className].join(
+          ' '
+        )}
         style={style}
       >
         {steps}

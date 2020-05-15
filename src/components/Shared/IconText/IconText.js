@@ -6,7 +6,7 @@ const IconText = () => {
   return (
     <Button
       className='brand-text-icon'
-      href=''
+      href='/'
       type='link'
     >
       Stay

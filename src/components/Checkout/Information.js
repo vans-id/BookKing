@@ -1,6 +1,7 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
 
+import './Shared.scss';
 import InputText from '../UI/Forms/InputText/InputText';
 
 const Information = ({
@@ -13,10 +14,7 @@ const Information = ({
     <Fade>
       <div className='container mb-4'>
         <div className='row justify-content-center align-items-center'>
-          <div
-            className='col-5 border-right py-5'
-            style={{ paddingRight: 80 }}
-          >
+          <div className='col-md-5 py-5 left-content'>
             <Fade delay={300}>
               <div className='card'>
                 <figure
@@ -24,13 +22,13 @@ const Information = ({
                   style={{ height: 270 }}
                 >
                   <img
-                    src={ItemDetails.ImageUrls[0].url}
+                    src={ItemDetails.imageUrls[0].url}
                     alt={ItemDetails.name}
                     className='img-cover'
                   />
                 </figure>
                 <div className='row align-items-center'>
-                  <div className='col'>
+                  <div className='col-sm'>
                     <div className='meta-wrapper'>
                       <h5>{ItemDetails.name}</h5>
                       <span className='text-gray-500'>
@@ -39,13 +37,13 @@ const Information = ({
                       </span>
                     </div>
                   </div>
-                  <div className='col-auto'>
+                  <div className='col-sm-auto'>
                     <span>
                       $
                       {+checkout.duration *
                         ItemDetails.price}{' '}
                       USD
-                      <span className='text-gray-500'>
+                      <span className='text-gray-500 font-weight-light'>
                         {' '}
                         per{' '}
                       </span>
@@ -61,10 +59,7 @@ const Information = ({
             </Fade>
           </div>
 
-          <div
-            className='col-5 py-5'
-            style={{ marginLeft: 80 }}
-          >
+          <div className='col-md-5 py-5 right-content'>
             <Fade delay={600}>
               <label htmlFor='firstName'>
                 First Name
@@ -73,7 +68,7 @@ const Information = ({
                 id='firstName'
                 name='firstName'
                 value={data.firstName}
-                onChange={changed}
+                changed={changed}
               />
               <label htmlFor='lastName'>
                 Last Name
@@ -82,7 +77,7 @@ const Information = ({
                 id='lastName'
                 name='lastName'
                 value={data.lastName}
-                onChange={changed}
+                changed={changed}
               />
               <label htmlFor='email'>
                 Email Address
@@ -92,7 +87,7 @@ const Information = ({
                 name='email'
                 type='email'
                 value={data.email}
-                onChange={changed}
+                changed={changed}
               />
               <label htmlFor='phone'>
                 Phone Number
@@ -102,7 +97,7 @@ const Information = ({
                 name='phone'
                 type='tel'
                 value={data.phone}
-                onChange={changed}
+                changed={changed}
               />
             </Fade>
           </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import Fade from 'react-reveal/Fade';
 
 import './InputText.scss';
 
@@ -13,8 +14,10 @@ const InputText = ({
   outerClassname,
   inputClassname,
   changed,
+  errorResponse,
 }) => {
-  const [error, setError] = useState(null);
+  const [isValid, setIsValid] = useState(true);
+
   let pattern;
   if (type === 'email')
     pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -31,8 +34,8 @@ const InputText = ({
     if (type === 'email') {
       let res = pattern.test(e.target.value);
       if (!res) {
-        setError(res);
-      } else setError(null);
+        setIsValid(res);
+      } else setIsValid(true);
     }
 
     if (type === 'tel') {
@@ -63,9 +66,13 @@ const InputText = ({
   };
 
   const hasError = () => {
-    if (error)
+    if (!isValid)
       return (
-        <span className='error-helper'>{error}</span>
+        <Fade>
+          <span className='error-helper'>
+            {errorResponse}
+          </span>
+        </Fade>
       );
   };
 
@@ -89,10 +96,11 @@ const InputText = ({
           value={value}
           placeholder={placeholder}
           onChange={onChange}
+          autoComplete='disabled'
         />
         {hasAppend()}
+        {hasError()}
       </div>
-      {hasError()}
     </div>
   );
 };

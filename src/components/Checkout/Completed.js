@@ -2,11 +2,11 @@ import React from 'react';
 import Fade from 'react-reveal/Fade';
 import Illustration from '../../assets/images/completed.jpg';
 
-const Completed = ({}) => {
+const Completed = () => {
   return (
     <Fade>
       <div className='container mb-4'>
-        <div className='col-4'>
+        <div className='col-md-4 mx-auto'>
           <img
             src={Illustration}
             className='img-fluid'

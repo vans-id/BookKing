@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './InputFile.scss';
 
-const InputFile = (
+const InputFile = ({
   name,
   value,
   prepend,
@@ -12,9 +12,9 @@ const InputFile = (
   placeholder,
   outerClassname,
   inputClassname,
-  changed
-) => {
-  const refInputFile = useRef(null);
+  changed,
+}) => {
+  const refInputFile = useRef();
 
   const hasPrepend = () => {
     if (prepend)
@@ -38,17 +38,10 @@ const InputFile = (
       );
   };
 
-  const hasError = () => {
-    if (error)
-      return (
-        <span className='error-helper'>{error}</span>
-      );
-  };
-
   return (
     <div
       className={[
-        'input-text mb-3',
+        'file-input mb-3',
         outerClassname,
       ].join(' ')}
     >
@@ -65,7 +58,7 @@ const InputFile = (
         />
         <input
           onClick={() => refInputFile.current.click()}
-          value={value}
+          defaultValue={value}
           placeholder={placeholder}
           className={[
             'form-control',
@@ -74,19 +67,18 @@ const InputFile = (
         />
         {hasAppend()}
       </div>
-      {hasError()}
     </div>
   );
 };
 
-InputText.defaultProps = {
+InputFile.defaultProps = {
   placeholder: 'Browse a file...',
 };
 
 InputFile.propTypes = {
   name: PropTypes.string.isRequired,
   accept: PropTypes.string.isRequired,
-  value: PropTypes.PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   changed: PropTypes.func.isRequired,
   prepend: PropTypes.oneOfType([
     PropTypes.number,

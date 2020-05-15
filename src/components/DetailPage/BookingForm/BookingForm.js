@@ -48,7 +48,7 @@ const BookingForm = (props) => {
 
       setDate({ ...date, endDate });
     }
-  }, [date, duration]);
+  }, [date, duration, prevDate, prevDuration]);
 
   const { data, startBooking } = props;
 
