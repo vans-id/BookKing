@@ -74,6 +74,104 @@ const Checkout = () => {
     },
   };
 
+  const checkCurrentStep = (
+    currentStep,
+    prevStep,
+    nextStep
+  ) => {
+    let bookingCondition =
+      data.firstName !== '' &&
+      data.lastName !== '' &&
+      data.email !== '' &&
+      data.phone !== '';
+    let paymentCondition =
+      data.proofPayment !== '' &&
+      data.bankName !== '' &&
+      data.bankHolder !== '';
+
+    if (currentStep === 'bookingInformation') {
+      return (
+        <Fade delay={900}>
+          <Controller>
+            {bookingCondition && (
+              <Fade>
+                <Button
+                  className='btn mb-3 px-5'
+                  type='button'
+                  isBlock
+                  isPrimary
+                  hasShadow
+                  onClick={nextStep}
+                >
+                  Continue to Book
+                </Button>
+              </Fade>
+            )}
+            <Button
+              className='btn px-5'
+              type='link'
+              isBlock
+              isLight
+              href={`/properties/${ItemDetails._id}`}
+              onClick={prevStep}
+            >
+              Cancel
+            </Button>
+          </Controller>
+        </Fade>
+      );
+    } else if (currentStep === 'payment') {
+      return (
+        <Fade delay={900}>
+          <Controller>
+            {paymentCondition && (
+              <Fade>
+                <Button
+                  className='btn px-5 mb-3'
+                  type='button'
+                  isBlock
+                  isPrimary
+                  hasShadow
+                  onClick={nextStep}
+                >
+                  Continue to Book
+                </Button>
+              </Fade>
+            )}
+            <Button
+              className='btn px-5'
+              type='link'
+              isBlock
+              isLight
+              href={`/properties/${ItemDetails._id}`}
+              onClick={prevStep}
+            >
+              Cancel
+            </Button>
+          </Controller>
+        </Fade>
+      );
+    } else if (currentStep === 'completed') {
+      return (
+        <Fade delay={900}>
+          <Controller>
+            <Fade>
+              <Button
+                className='btn px-5 mt-5'
+                hasShadow
+                isPrimary
+                type='link'
+                href='/'
+              >
+                Back to Home
+              </Button>
+            </Fade>
+          </Controller>
+        </Fade>
+      );
+    }
+  };
+
   return (
     <>
       <Header isCentered />
@@ -89,81 +187,10 @@ const Checkout = () => {
               data={steps}
               current={currentStep}
             />
-            {currentStep === 'bookingInformation' && (
-              <Controller>
-                {data.firstName !== '' &&
-                  data.lastName !== '' &&
-                  data.email !== '' &&
-                  data.phone !== '' && (
-                    <Fade>
-                      <Button
-                        className='btn mb-3'
-                        type='button'
-                        isBlock
-                        isPrimary
-                        hasShadow
-                        onClick={nextStep}
-                      >
-                        Continue to Book
-                      </Button>
-                    </Fade>
-                  )}
-                <Button
-                  className='btn'
-                  type='link'
-                  isBlock
-                  isLight
-                  href={`/properties/${ItemDetails._id}`}
-                  onClick={prevStep}
-                >
-                  Cancel
-                </Button>
-              </Controller>
-            )}
-            {currentStep === 'payment' && (
-              <Controller>
-                {data.proofPayment !== '' &&
-                  data.bankName !== '' &&
-                  data.bankHolder !== '' && (
-                    <Fade>
-                      <Button
-                        className='btn btn-sm-block mb-3'
-                        type='button'
-                        isBlock
-                        isPrimary
-                        hasShadow
-                        onClick={nextStep}
-                      >
-                        Continue to Book
-                      </Button>
-                    </Fade>
-                  )}
-                <Button
-                  className='btn'
-                  type='link'
-                  isBlock
-                  isLight
-                  href={`/properties/${ItemDetails._id}`}
-                  onClick={prevStep}
-                >
-                  Cancel
-                </Button>
-              </Controller>
-            )}
-            {currentStep === 'completed' && (
-              <Controller>
-                <Fade>
-                  <Button
-                    className='btn px-5 mt-5'
-                    hasShadow
-                    isPrimary
-                    type='link'
-                    href='/'
-                  >
-                    Back to Home
-                  </Button>
-                </Fade>
-              </Controller>
+            {checkCurrentStep(
+              currentStep,
+              prevStep,
+              nextStep
             )}
           </>
         )}

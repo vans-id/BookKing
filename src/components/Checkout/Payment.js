@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
 
 import './Shared.scss';
@@ -17,6 +17,10 @@ const Payment = ({
   const subTotal =
     ItemDetails.price * checkout.duration;
   const grandTotal = (subTotal * tax) / 100 + subTotal;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Fade>
