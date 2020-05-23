@@ -1,5 +1,9 @@
 .section-categories {
-  .img-wrapper {
+  .img-container {
     height: 180px;
+
+    .img-cover {
+      border-radius: 15px;
+    }
   }
 }

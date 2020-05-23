@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
+import { connect } from 'react-redux';
 
 import ItemDetails from '../json/itemDetails.json';
 import Header from '../components/Shared/Header/Header';
@@ -13,7 +14,7 @@ import Information from '../components/Checkout/Information';
 import Payment from '../components/Checkout/Payment';
 import Completed from '../components/Checkout/Completed';
 
-const Checkout = () => {
+const Checkout = (props) => {
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
@@ -36,9 +37,29 @@ const Checkout = () => {
     });
   };
 
-  const checkout = {
-    duration: 3,
-  };
+  if (!props.checkout)
+    return (
+      <div className='container'>
+        <div
+          className='row align-items-center justify-content-center'
+          style={{ height: '90vh' }}
+        >
+          <div className='col-md-4'>
+            Oopps! Something went wrong!
+            <div>
+              <Button
+                className='btn mt-5'
+                type='link'
+                href='/'
+                isLight
+              >
+                Back
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
 
   const steps = {
     bookingInformation: {
@@ -48,7 +69,7 @@ const Checkout = () => {
       content: (
         <Information
           data={data}
-          checkout={checkout}
+          checkout={props.checkout}
           ItemDetails={ItemDetails}
           changed={onChange}
         />
@@ -61,7 +82,7 @@ const Checkout = () => {
       content: (
         <Payment
           data={data}
-          checkout={checkout}
+          checkout={props.checkout}
           ItemDetails={ItemDetails}
           changed={onChange}
         />
@@ -199,4 +220,8 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+const mapStateToProps = (state) => ({
+  checkout: state.checkout,
+});
+
+export default connect(mapStateToProps)(Checkout);

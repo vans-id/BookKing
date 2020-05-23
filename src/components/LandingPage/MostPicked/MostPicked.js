@@ -33,7 +33,7 @@ const MostPicked = (props) => {
           </div>
           <figure className='img-wrapper'>
             <img
-              src={item.imageUrl}
+              src={`${process.env.REACT_APP_HOST}/${item.imageId[0].imageUrl}`}
               alt={item.name}
               className='img-cover'
             />

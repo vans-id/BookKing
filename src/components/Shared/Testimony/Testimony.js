@@ -14,7 +14,7 @@ const Testimony = ({ data }) => {
           <div className='col-lg-4'>
             <div className='testimonial-hero'>
               <img
-                src={data.imageUrl}
+                src={`${process.env.REACT_APP_HOST}/${data.imageUrl}`}
                 alt='testimonial'
                 className='position-absolute'
                 style={{ zIndex: 2 }}

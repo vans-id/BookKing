@@ -19,15 +19,7 @@ const Categories = ({ data }) => {
   };
 
   const fillCategoryItems = (params) => {
-    if (params.length === 0) {
-      return (
-        <div className='row'>
-          <div className='col-auto align-items-center'>
-            There is no property at this category
-          </div>
-        </div>
-      );
-    } else {
+    if (params.length !== 0) {
       return params.map((item, i) => (
         <div
           className='item column-3 row-1'
@@ -36,13 +28,13 @@ const Categories = ({ data }) => {
           <Fade bottom delay={300 * i}>
             <div className='card'>
               {checkPopular(item.isPopular)}
-              <figure className='img-wrapper'>
+              <div className='img-container'>
                 <img
-                  src={item.imageUrl}
+                  src={`${process.env.REACT_APP_HOST}/${item.imageId[0].imageUrl}`}
                   alt={item.name}
                   className='img-cover'
                 />
-              </figure>
+              </div>
               <div className='meta-wrapper'>
                 <Button
                   className='stretched-link d-block text-gray-900'
@@ -69,7 +61,7 @@ const Categories = ({ data }) => {
           {category.name}
         </h4>
         <div className='container-grid'>
-          {fillCategoryItems(category.items)}
+          {fillCategoryItems(category.itemId)}
         </div>
       </section>
     </Fade>

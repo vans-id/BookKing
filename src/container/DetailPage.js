@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { checkoutBooking } from '../store/actions/checkout';
 
 import ItemDetails from '../json/itemDetails.json';
 import Header from '../components/Shared/Header/Header';
@@ -37,7 +39,7 @@ const DetailPage = (props) => {
           <div className='col-md-5'>
             <BookingForm
               data={ItemDetails}
-              startBooking={() => {}}
+              startBooking={props.checkoutBooking}
             />
           </div>
         </div>
@@ -49,4 +51,6 @@ const DetailPage = (props) => {
   );
 };
 
-export default DetailPage;
+export default connect(null, { checkoutBooking })(
+  DetailPage
+);

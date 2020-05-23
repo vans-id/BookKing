@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Fade from 'react-reveal/Fade';
 
@@ -52,6 +53,18 @@ const BookingForm = (props) => {
 
   const { data, startBooking } = props;
 
+  const onStartBooking = () => {
+    startBooking({
+      _id: data._id,
+      duration: duration,
+      date: {
+        startDate: date.startDate,
+        endDate: date.endDate,
+      },
+    });
+    props.history.push('/checkout');
+  };
+
   return (
     <Fade bottom>
       <div className='card bordered section-booking'>
@@ -98,7 +111,7 @@ const BookingForm = (props) => {
           hasShadow
           isPrimary
           isBlock
-          onClick={startBooking}
+          onClick={onStartBooking}
         >
           Continue to book
         </Button>
@@ -112,4 +125,4 @@ BookingForm.propTypes = {
   startBooking: PropTypes.func,
 };
 
-export default BookingForm;
+export default withRouter(BookingForm);
