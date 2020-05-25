@@ -4,7 +4,7 @@ import Fade from 'react-reveal/Fade';
 import './Categories.scss';
 import Button from '../../UI/Button/Button';
 
-const Categories = ({ data }) => {
+const Categories = ({ data, scrollPosition }) => {
   const checkPopular = (stat) => {
     if (stat) {
       return (
@@ -41,7 +41,7 @@ const Categories = ({ data }) => {
                   href={`/properties/${item._id}`}
                   type='link'
                 >
-                  <h5 className='h4'>{item.name}</h5>
+                  <h5 className='h4'>{item.title}</h5>
                   <span className='text-gray-500'>
                     {item.city}, {item.country}
                   </span>

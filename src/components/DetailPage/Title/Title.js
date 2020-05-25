@@ -15,7 +15,7 @@ const Title = ({ data, breadcrumb }) => {
             />
           </div>
           <div className='col-lg-auto text-center'>
-            <h1 className='h2'>{data.name}</h1>
+            <h1 className='h2'>{data.title}</h1>
             <span className='text-gray-400 font-weight-lighter'>
               {data.city}, {data.country}
             </span>

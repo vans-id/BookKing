@@ -1,11 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import './InputFile.scss';
 
 const InputFile = ({
   name,
-  value,
   prepend,
   append,
   accept,
@@ -14,6 +13,7 @@ const InputFile = ({
   inputClassname,
   changed,
 }) => {
+  const [fileName, setFileName] = useState('');
   const refInputFile = useRef();
 
   const hasPrepend = () => {
@@ -38,6 +38,16 @@ const InputFile = ({
       );
   };
 
+  const onChange = (e) => {
+    setFileName(e.target.value);
+    changed({
+      target: {
+        name: e.target.name,
+        value: e.target.files,
+      },
+    });
+  };
+
   return (
     <div
       className={[
@@ -53,12 +63,12 @@ const InputFile = ({
           name={name}
           type='file'
           className='d-none'
-          value={value}
-          onChange={changed}
+          value={fileName}
+          onChange={onChange}
         />
         <input
           onClick={() => refInputFile.current.click()}
-          defaultValue={value}
+          defaultValue={fileName}
           placeholder={placeholder}
           className={[
             'form-control',
@@ -78,7 +88,6 @@ InputFile.defaultProps = {
 InputFile.propTypes = {
   name: PropTypes.string.isRequired,
   accept: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
   changed: PropTypes.func.isRequired,
   prepend: PropTypes.oneOfType([
     PropTypes.number,

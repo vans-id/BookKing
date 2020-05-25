@@ -3,7 +3,7 @@ import ReactHtmlParser from 'react-html-parser';
 import Fade from 'react-reveal/Fade';
 
 const Description = ({ data }) => {
-  let featuredIcons = data.features.map(
+  let featuredIcons = data.featureId.map(
     (feature, i) => (
       <div
         className='col-6 col-sm-4 col-lg-3 mb-3'
@@ -12,7 +12,7 @@ const Description = ({ data }) => {
         <img
           width='38'
           height='38'
-          src={feature.imageUrl}
+          src={`${process.env.REACT_APP_HOST}/${feature.imageUrl}`}
           alt={feature.name}
           className='d-block mb-2'
         />{' '}

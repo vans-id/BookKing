@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
 import { connect } from 'react-redux';
+import { submitBooking } from '../store/actions/checkout';
 
 import ItemDetails from '../json/itemDetails.json';
 import Header from '../components/Shared/Header/Header';
@@ -13,6 +14,7 @@ import Controller from '../components/UI/Stepper/Controller';
 import Information from '../components/Checkout/Information';
 import Payment from '../components/Checkout/Payment';
 import Completed from '../components/Checkout/Completed';
+import Error from '../components/Error/Error';
 
 const Checkout = (props) => {
   const [data, setData] = useState({
@@ -37,29 +39,7 @@ const Checkout = (props) => {
     });
   };
 
-  if (!props.checkout)
-    return (
-      <div className='container'>
-        <div
-          className='row align-items-center justify-content-center'
-          style={{ height: '90vh' }}
-        >
-          <div className='col-md-4'>
-            Oopps! Something went wrong!
-            <div>
-              <Button
-                className='btn mt-5'
-                type='link'
-                href='/'
-                isLight
-              >
-                Back
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+  if (!props.checkout) return <Error />;
 
   const steps = {
     bookingInformation: {
@@ -70,7 +50,7 @@ const Checkout = (props) => {
         <Information
           data={data}
           checkout={props.checkout}
-          ItemDetails={ItemDetails}
+          ItemDetails={props.page[props.checkout._id]}
           changed={onChange}
         />
       ),
@@ -83,7 +63,7 @@ const Checkout = (props) => {
         <Payment
           data={data}
           checkout={props.checkout}
-          ItemDetails={ItemDetails}
+          ItemDetails={props.page[props.checkout._id]}
           changed={onChange}
         />
       ),
@@ -153,7 +133,7 @@ const Checkout = (props) => {
                   isBlock
                   isPrimary
                   hasShadow
-                  onClick={nextStep}
+                  onClick={() => onSubmit(nextStep)}
                 >
                   Continue to Book
                 </Button>
@@ -193,6 +173,34 @@ const Checkout = (props) => {
     }
   };
 
+  const onSubmit = async (nextStep) => {
+    const payload = new FormData();
+
+    payload.append('firstName', data.firstName);
+    payload.append('lastName', data.lastName);
+    payload.append('email', data.email);
+    payload.append('phoneNumber', data.phone);
+    payload.append('idItem', props.checkout._id);
+    payload.append(
+      'duration',
+      props.checkout.duration
+    );
+    payload.append(
+      'bookingStartDate',
+      props.checkout.date.startDate
+    );
+    payload.append(
+      'bookingEndDate',
+      props.checkout.date.endDate
+    );
+    payload.append('accountHolder', data.bankHolder);
+    payload.append('bankFrom', data.bankName);
+    payload.append('imageUrl', data.proofPayment[0]);
+
+    await props.submitBooking(payload);
+    nextStep();
+  };
+
   return (
     <>
       <Header isCentered />
@@ -222,6 +230,9 @@ const Checkout = (props) => {
 
 const mapStateToProps = (state) => ({
   checkout: state.checkout,
+  page: state.page,
 });
 
-export default connect(mapStateToProps)(Checkout);
+export default connect(mapStateToProps, {
+  submitBooking,
+})(Checkout);

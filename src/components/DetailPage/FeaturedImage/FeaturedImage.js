@@ -19,7 +19,7 @@ const FeaturedImage = ({ data }) => {
         <div className='card h-100'>
           <figure className='img-wrapper'>
             <img
-              src={item.url}
+              src={`${process.env.REACT_APP_HOST}/${item.imageUrl}`}
               alt={item._id}
               className='img-cover'
             />
