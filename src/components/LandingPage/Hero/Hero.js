@@ -45,7 +45,7 @@ const Hero = (props) => {
               <div className='col-6 col-lg-4'>
                 <img
                   className='icon-image'
-                  src={'/images/ic_traveler.svg'}
+                  src={require('../../../assets/images/icons/ic_traveler.png')}
                   alt={`${props.data.travelers} traveler`}
                 />
                 <h6 className='mt-3'>
@@ -57,7 +57,7 @@ const Hero = (props) => {
               </div>
               <div className='col-6 col-lg-4'>
                 <img
-                  src={'/images/ic_treasure.svg'}
+                  src={require('../../../assets/images/icons/ic_treasure.png')}
                   alt='treasure'
                   className='icon-image'
                 />
@@ -70,7 +70,7 @@ const Hero = (props) => {
               </div>
               <div className='col-6 col-lg-4'>
                 <img
-                  src={'/images/ic_cities.svg'}
+                  src={require('../../../assets/images/icons/ic_cities.png')}
                   alt='cities'
                   className='icon-image'
                 />
